@@ -52,9 +52,11 @@ function App() {
       <button onClick={() => setOpen(true)}>Show users</button>
 
       {isOpen && (
-        <Suspense fallback={<Loading />}>
-          <Users />
-        </Suspense>
+          <ErrorBoundary>
+            <Suspense fallback={<Loading />}>
+              <Users />
+            </Suspense>
+          </ErrorBoundary>
       )}
     </div>
   )
